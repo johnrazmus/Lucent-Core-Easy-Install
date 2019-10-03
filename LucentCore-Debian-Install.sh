@@ -1,5 +1,5 @@
 #!/bin/bash
-# Lucent Core Installation Script for Debian - LCNT v0.12.3.3 (October 2, 2019 Revision)
+# Lucent Core Installation Script for Debian - LCNT v0.12.3.3 (October 2, 2019 Revision #2)
 # Approved by ...
 # Written by AlphaSerpentis#3203 (Lucent Core Tech Lead)
 # Lucent Core (for Debian) Installation Script is based upon C1ph3r117#6078 and Daywalker#3486 Lucent Masternode Script (https://github.com/LucentCoin/Lucent/releases)
@@ -41,8 +41,8 @@ OPTGUI=$1 # Y/N for GUI (QT)
 read -e -p "Would you like to install the GUI (QT) with Lucent Core? [Y/N]: " OPTGUI
 
 if [[ ${OPTGUI^} == "Y" ]]; then
-  echo "Downloading GUI dependency..."
-  sudo apt-get install qt
+  echo "Downloading GUI dependencies..."
+  sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
   echo "Configuring with GUI!"
   ./configure --with-incompatible-bdb
 elif [[ ${OPTGUI^} == "N" ]]; then
